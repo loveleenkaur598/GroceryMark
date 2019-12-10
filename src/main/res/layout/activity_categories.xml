@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".Categories"
+android:id="@+id/drawer">
+
+<include
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    layout="@layout/drawer_toolbar"/>
+<include
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    layout="@layout/content_main"/>
+
+<com.google.android.material.navigation.NavigationView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/navi_view"
+    app:menu="@menu/draw_menu"
+    app:headerLayout="@layout/drawer_header"
+    android:layout_gravity="start"
+    android:fitsSystemWindows="true"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/background1">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="Fruits"
+            android:textStyle="bold"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textStyle="italic"
+            android:textColor="@android:color/white"
+            android:text="By clicking on the items, Add your favourite products to the Cart"
+            android:textSize="18sp" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
