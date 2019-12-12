@@ -24,12 +24,12 @@
             android:layout_below="@id/tvName"
             android:layout_alignParentTop="true"
             android:layout_marginStart="6dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="54dp"
             android:layout_toEndOf="@id/imageView"
             android:layout_toRightOf="@+id/imageView"
-            android:gravity="center"
-            android:paddingLeft="10dp"
+            android:paddingLeft="30dp"
+            android:text="fgfgf"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -49,42 +49,27 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="5dp"
-            android:text="+" />
-
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="32dp"
-            android:layout_height="29dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="11dp"
-            android:layout_toStartOf="@+id/button6"
-            android:gravity="center"
-            android:text="0" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="40dp"
+            android:layout_width="139dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="19dp"
-            android:layout_toStartOf="@+id/textView4"
-            android:text="-" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="141dp"
-            android:layout_height="38dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="47dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="4dp"
-            android:text="Add to Cart" />
+            android:gravity="center"
+            android:text="27-09-1994" />
+
+        <Button
+            android:id="@+id/deleteEntry"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="8dp"
+            android:background="#F16358"
+            android:text="Delete" />
 
     </RelativeLayout>
 

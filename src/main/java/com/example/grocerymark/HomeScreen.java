@@ -16,8 +16,10 @@ import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class HomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+public class HomeScreen extends AppCompatActivity {
 
     Toolbar toolbar;
     DrawerLayout drawer;
@@ -36,8 +38,35 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        navigationView = findViewById(R.id.navi_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView = findViewById(R.id.navi_view1);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                if(id == R.id.home){
+                    Intent signOut = new Intent(HomeScreen.this, HomeScreen.class);
+                    startActivity(signOut);
+                }else if(id == R.id.Cart){
+                    Intent cart = new Intent(HomeScreen.this, Cart.class);
+                    startActivity(cart);
+                }else if(id == R.id.user){
+                    Intent profile = new Intent(HomeScreen.this, Profile.class);
+                    startActivity(profile);
+                }
+                else if(id == R.id.Stores){
+                    Intent stores = new Intent(HomeScreen.this, MapsActivity.class);
+                    startActivity(stores);
+                }
+                else if(id == R.id.logout){
+                    logout();
+                }
+                else if(id == R.id.Orders){
+                    Intent order = new Intent(HomeScreen.this, Order.class);
+                    startActivity(order);
+                }
+                return true;
+            }
+        });
 
         drawer = findViewById(R.id.drawer);
         toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open,R.string.close);
@@ -45,26 +74,21 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
 
-
-
         mainGrid = (GridLayout)findViewById(R.id.mainGrid);
-
 
         //Set Event
         setSingleEvent(mainGrid);
 
-
-
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        if(menuItem.getItemId() == R.id.home){
-            Toast.makeText(this, "Home btn Clicked.", Toast.LENGTH_SHORT).show();
-        }
-        return true;
-    }
 
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+
+        Intent signOut = new Intent(HomeScreen.this, MainActivity.class);
+        startActivity(signOut);
+
+    }
 
 
     private void setSingleEvent(GridLayout mainGrid) {
@@ -115,5 +139,18 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
                 }
             });
         }
+    }
+
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+//        if(menuItem.getItemId() == R.id.logout){
+//            Toast.makeText(HomeScreen.this,"Clicked",Toast.LENGTH_SHORT).show();
+//        }
+//        return true;
+//    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
